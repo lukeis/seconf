@@ -1,6 +1,5 @@
 package me.lukeis.example.drivers;
 
-import me.lukeis.example.pageobjects.android.AndroidClassMapper;
 import me.lukeis.example.pageobjects.android.AndroidLoginPage;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -16,7 +15,7 @@ public class SelendroidDriver extends TouchDeviceDriver implements Driver {
 
   @Override
   public AndroidLoginPage getPageObject() {
-    return new AndroidLoginPage(this, new AndroidClassMapper());
+    return new AndroidLoginPage(this);
   }
 
   public static SelendroidDriver getInstance() {

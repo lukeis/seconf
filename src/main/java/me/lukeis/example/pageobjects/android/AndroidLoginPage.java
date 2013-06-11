@@ -20,32 +20,34 @@ public class AndroidLoginPage extends CommonLoginPage {
   }
 
   public ChatterFeedPage login(String name, String pwd) {
-    driver.switchTo().window("WEBVIEW");
-
-    ((JavascriptExecutor)driver).executeScript(
-        "document.getElementById('username').value = arguments[0];" +
-            "document.getElementById('password').value = arguments[1];",
-        name, pwd);
-
-    driver.findElement(loginBtn).click();
-
-    List<WebElement> maintenanceContinue = driver.findElements(continueLink);
-    if (maintenanceContinue.size() > 0) {
-      maintenanceContinue.get(0).click();
-    }
-
-    List<WebElement> els = null;
-    try {
-      els = shortWait.until(ExpectedConditions
-          .presenceOfAllElementsLocatedBy(approveOauth));
-    } catch (TimeoutException te) {
-      // pass
-    }
-    if (els != null && els.size() > 0) {
-      els.get(0).click();
-    }
-
-    driver.switchTo().window("NATIVE_APP");
+//    longWait.until(ExpectedConditions.presenceOfElementLocated(By.id("oauth_webview")));
+//
+//    driver.switchTo().window("WEBVIEW");
+//
+//    ((JavascriptExecutor)driver).executeScript(
+//        "document.getElementById('username').value = arguments[0];" +
+//            "document.getElementById('password').value = arguments[1];",
+//        name, pwd);
+//
+//    driver.findElement(loginBtn).click();
+//
+//    List<WebElement> maintenanceContinue = driver.findElements(continueLink);
+//    if (maintenanceContinue.size() > 0) {
+//      maintenanceContinue.get(0).click();
+//    }
+//
+//    List<WebElement> els = null;
+//    try {
+//      els = shortWait.until(ExpectedConditions
+//          .presenceOfAllElementsLocatedBy(approveOauth));
+//    } catch (TimeoutException te) {
+//      // pass
+//    }
+//    if (els != null && els.size() > 0) {
+//      els.get(0).click();
+//    }
+//
+//    driver.switchTo().window("NATIVE_APP");
 
     return new AndroidChatterFeedPage(driver);
   }

@@ -1,6 +1,5 @@
 package me.lukeis.example.drivers;
 
-import me.lukeis.example.pageobjects.common.CommonClassMapper;
 import me.lukeis.example.pageobjects.common.CommonLoginPage;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -15,7 +14,7 @@ public class MobileSafariIPhoneDriver extends TouchDeviceDriver implements Drive
 
   @Override
   public CommonLoginPage getPageObject() {
-    return new CommonLoginPage(this, new CommonClassMapper());
+    return new CommonLoginPage(this);
   }
 
   public static MobileSafariIPhoneDriver getInstance() {

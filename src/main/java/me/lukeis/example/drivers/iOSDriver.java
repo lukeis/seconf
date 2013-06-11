@@ -1,7 +1,6 @@
 package me.lukeis.example.drivers;
 
 import me.lukeis.example.pageobjects.LoginPage;
-import me.lukeis.example.pageobjects.ios.IOSClassMapper;
 import me.lukeis.example.pageobjects.ios.IOSLoginPage;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -13,8 +12,8 @@ public class iOSDriver extends TouchDeviceDriver implements Driver {
     setCapability("device", "iphone");
     setCapability("language", "en");
     setCapability("locale", "en_GB");
-    setCapability("CFBundleName", "chatter");
-    setCapability("CFBundleVersion", "3.3.1");
+    setCapability("CFBundleName", "Chatter");
+    setCapability("CFBundleVersion", "local");
     setCapability("variation", "Regular");
     setCapability("simulator", true);
   }};
@@ -33,7 +32,7 @@ public class iOSDriver extends TouchDeviceDriver implements Driver {
 
   @Override
   public LoginPage getPageObject() {
-    return new IOSLoginPage(this, new IOSClassMapper());
+    return new IOSLoginPage(this);
   }
 
 }
